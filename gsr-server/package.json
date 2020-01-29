@@ -1,8 +1,8 @@
 {
   "name": "gsr-server",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "a Nest-TypeOrm-Typescipt Project",
+  "author": "polycarp",
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -18,7 +18,14 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "start:dev:db": "./src/scripts/start-db.sh"
+    "start:dev:db": "./src/scripts/start-db.sh",
+
+    "pretypeorm": "(rm ormconfig.json || :) && ts-node -r tsconfig-paths/register src/scripts/write-type-orm-config.ts",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "typeorm:migration:generate": "npm run typeorm -- migration:generate -n",
+    "typeorm:migration:run": "npm run typeorm -- migration:run"
+
+
   },
   "dependencies": {
     "@nestjs/common": "^6.7.2",
@@ -66,4 +73,5 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
+
 }
