@@ -1,20 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, Column } from 'typeorm';
+import { BaseEntity } from './base.entity';
 
-@Entity()
-export class Mission {
-    @PrimaryGeneratedColumn()
-    id?: number;
+@Entity({ name: 'mission' })
+export class Mission extends BaseEntity {
 
-    @Column({ length: 50 })
+    @Column({ type: 'varchar', length: 50 })
     title: string;
 
-    @Column()
+    @Column({ type: 'int', width: 50 })
     reward: number;
-
-    @Column()
-    active: boolean;
-
-    @Column() createdAt: Date = new Date();
-    @Column() createdBy: string = 'user';
-    @Column() isDeleted: boolean = false;
 }
