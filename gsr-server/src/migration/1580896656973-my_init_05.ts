@@ -1,7 +1,8 @@
-import {MigrationInterface, QueryRunner} from "typeorm";
+import {MigrationInterface, QueryRunner} from 'typeorm';
 
-export class myInit1580392257972 implements MigrationInterface {
-    name = 'myInit1580392257972'
+// tslint:disable-next-line:class-name
+export class myInit051580896656973 implements MigrationInterface {
+    name = 'myInit051580896656973';
 
     public async up(queryRunner: QueryRunner): Promise<any> {
         await queryRunner.query(`CREATE TABLE "mission" ("id" SERIAL NOT NULL, "title" character varying(50) NOT NULL, "reward" integer NOT NULL, "active" boolean NOT NULL, "createdAt" TIMESTAMP NOT NULL, "createdBy" character varying NOT NULL, "isDeleted" boolean NOT NULL, CONSTRAINT "PK_54f1391034bc7dd30666dee0d4c" PRIMARY KEY ("id"))`, undefined);
@@ -14,6 +15,7 @@ export class myInit1580392257972 implements MigrationInterface {
         await queryRunner.query(`ALTER TABLE "mission" ADD "isActive" boolean NOT NULL DEFAULT true`, undefined);
         await queryRunner.query(`ALTER TABLE "mission" ADD "isArchived" boolean NOT NULL DEFAULT false`, undefined);
         await queryRunner.query(`ALTER TABLE "mission" ADD "createDateTime" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP`, undefined);
+        // tslint:disable-next-line:max-line-length
         await queryRunner.query(`ALTER TABLE "mission" ADD "lastChangedDateTime" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP`, undefined);
         await queryRunner.query(`ALTER TABLE "mission" ADD "lastChangedBy" character varying(300) NOT NULL`, undefined);
         await queryRunner.query(`ALTER TABLE "mission" ADD "internalComment" character varying(300)`, undefined);
