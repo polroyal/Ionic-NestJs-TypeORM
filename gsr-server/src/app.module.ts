@@ -4,16 +4,15 @@ import { AppService } from './app.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { configService } from './config/config.service';
-// import { MissionController } from './mission/mission.controller';
-// import { MissionService } from './mission/mission.service';
 import { MissionModule } from './mission/mission.module';
+import { MissionController } from './mission/mission.controller';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
     MissionModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, MissionController],
   providers: [AppService],
 })
 export class AppModule {}

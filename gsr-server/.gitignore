@@ -26,9 +26,14 @@ lerna-debug.log*
 .settings/
 *.sublime-workspace
 
+# Ignore files related to API keys
+ .env
+
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+src/scripts/write-type-orm-config.ts

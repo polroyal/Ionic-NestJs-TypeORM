@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsUUID, IsNumber } from 'class-validator';
-import { Mission } from '../model/mission.entity';
-import { User } from '../user.decorator';
+import { Mission } from '../../model/mission.entity';
+import { User } from '../../user.decorator';
 
-export class MissionDTO implements readonly<MissionDTO> {
+export class MissionDTO implements Readonly<MissionDTO> {
     @ApiProperty({ required: true})
     @IsUUID()
     id: string;

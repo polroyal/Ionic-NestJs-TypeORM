@@ -2,7 +2,7 @@ import { Injectable, Get } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Mission } from '../model/mission.entity';
 import { Repository } from 'typeorm';
-import { MissionDTO } from './mission.dto';
+import { MissionDTO } from './dto/mission.dto';
 
 @Injectable()
 export class MissionService {

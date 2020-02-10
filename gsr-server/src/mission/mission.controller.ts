@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { MissionService } from './mission.service';
-import { MissionDTO } from './mission.dto';
+import { MissionDTO } from './dto/mission.dto';
 import { User } from '../user.decorator';
 
 @Controller('mission')
