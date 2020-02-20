@@ -7,11 +7,6 @@ import { User } from '../user.decorator';
 export class MissionController {
     constructor(private serv: MissionService) { }
 
-    // @Get()
-    // public async getAll() {
-    //     return await this.serv.getAll();
-    // }
-
     @Get()
     public async getAll(): Promise<MissionDTO[]> {
         return await this.serv.getAll();
@@ -19,7 +14,7 @@ export class MissionController {
 
     @Post()
     public async post(@User() user: User, @Body() dto: MissionDTO): Promise<MissionDTO> {
-        return this.serv.create(dto, user);
-    }
+    return this.serv.create(dto, user);
+  }
 
 }
