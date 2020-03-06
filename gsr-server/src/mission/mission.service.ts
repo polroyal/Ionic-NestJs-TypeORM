@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Mission } from '../model/mission.entity';
 import { Repository } from 'typeorm';
 import { MissionDTO } from './dto/mission.dto';
+import { User } from '../user.decorator';
 
 @Injectable()
 export class MissionService {
@@ -18,7 +19,7 @@ export class MissionService {
        .then(missions => missions.map(e => MissionDTO.fromEntity(e)));
    }
 
-    public async create(dto: MissionDTO, user: User): Promise<MissionDTO> {
+    public async create(dto: MissionDTO, user: any ): Promise<MissionDTO> {
         return this.repo.save(dto.toEntity(user))
         .then(e => MissionDTO.fromEntity(e));
     }

@@ -13,7 +13,7 @@ export class MissionController {
     }
 
     @Post()
-    public async post(@User() user: User, @Body() dto: MissionDTO): Promise<MissionDTO> {
+    public async post(@User() user: any, @Body() dto: MissionDTO): Promise<MissionDTO> {
     return this.serv.create(dto, user);
   }
 

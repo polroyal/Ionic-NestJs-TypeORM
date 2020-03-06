@@ -37,3 +37,4 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 src/scripts/write-type-orm-config.ts
+ormconfig.json
