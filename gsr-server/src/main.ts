@@ -7,14 +7,16 @@ async function bootstrap() {
     const app = await NestFactory.create(AppModule);
 
     if (!configService.isProduction()) {
-    const document = SwaggerModule.createDocument(app, new DocumentBuilder()
+    const options = SwaggerModule.createDocument(app, new DocumentBuilder()
     .setTitle('Mission API')
-    .setDescription('My Mission API')
+    .setDescription('My Missions')
     .setVersion('1.0')
     .addTag('missions')
     .build());
 
-    SwaggerModule.setup('docs', app, document);
+    const document = SwaggerModule.createDocument(app, options);
+
+    SwaggerModule.setup('api', app, document);
   }
 
     app.enableCors();
